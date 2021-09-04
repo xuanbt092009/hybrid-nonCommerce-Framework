@@ -16,6 +16,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObject.MyAccountPageObject;
+import pageObject.OderPageObject;
+import pageObject.SearchPageObject;
+import pageObject.ShoppingCartPageObject;
+import pageObject.SiteMapPageObject;
+import pageUIs.BasePageUI;
+
 public class BasePage {
 
 	public void getURL(WebDriver driver, String URL) {
@@ -349,6 +356,36 @@ public class BasePage {
 	}
 	
 	
+	public OderPageObject getOrderPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.ORDER_FOOTER);
+		clickToElement(driver, BasePageUI.ORDER_FOOTER);
+		return PageGeneratorManager.getOrderPage(driver);
+		
+	}
+	
+	public MyAccountPageObject getMyAccountPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.MY_ACCOUNT_FOOTER);
+		clickToElement(driver, BasePageUI.MY_ACCOUNT_FOOTER);	
+		return PageGeneratorManager.getMyAccountPage(driver);
+	}
+	public SearchPageObject getSearchPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.SEARCH_FOOTER);
+		clickToElement(driver, BasePageUI.SEARCH_FOOTER);	
+		return PageGeneratorManager.getSearchPage(driver);
+	}
+	
+	public ShoppingCartPageObject getShoppingCartPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.SHOPPING_CART_FOOTER);
+		clickToElement(driver, BasePageUI.SHOPPING_CART_FOOTER);	
+		return PageGeneratorManager.getShoppingCartPage(driver);
+	}
+	
+	public SiteMapPageObject getSiteMapPage(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.SITE_MAP_FOOTER);
+		clickToElement(driver, BasePageUI.SITE_MAP_FOOTER);	
+		return PageGeneratorManager.getSiteMapPage(driver);
+	
+	}
 	public void sleepInSecond(int sec) {
 		try {
 			Thread.sleep(1000 * sec);
